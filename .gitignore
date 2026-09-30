@@ -1,0 +1,35 @@
+# Virtual Environment
+venv/
+
+# Environment Variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django
+db.sqlite3
+*.log
+
+# Static files
+staticfiles/
+
+# Media files
+media/
+
+# IDE
+.vscode/
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Test / Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Environment
+.env.local
