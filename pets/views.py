@@ -2,6 +2,8 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, render
 
+from favorites.models import Favorite
+
 from .models import Pet
 
 
@@ -77,10 +79,19 @@ def pet_list_view(request):
 def pet_detail_view(request, pk):
     pet = get_object_or_404(Pet, pk=pk)
 
+    is_favorite = False
+
+    if request.user.is_authenticated:
+        is_favorite = Favorite.objects.filter(
+            user=request.user,
+            pet=pet,
+        ).exists()
+
     return render(
         request,
         "pets/pet_detail.html",
         {
             "pet": pet,
+            "is_favorite": is_favorite,
         },
     )

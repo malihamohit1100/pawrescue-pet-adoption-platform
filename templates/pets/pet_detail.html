@@ -134,7 +134,7 @@
                 {% if user.is_authenticated %}
 
                     <a
-                        href="#"
+                        href="{% url 'adoptions:create' pet.pk %}"
                         class="btn btn-primary btn-lg"
                     >
                         Apply for Adoption
@@ -159,6 +159,32 @@
                 </div>
 
             {% endif %}
+
+
+            {% if user.is_authenticated %}
+
+                {% if is_favorite %}
+
+                    <a
+                        href="{% url 'favorites:toggle' pet.pk %}"
+                        class="btn btn-outline-danger"
+                    >
+                        Remove from Favorites
+                    </a>
+
+                {% else %}
+
+                    <a
+                        href="{% url 'favorites:toggle' pet.pk %}"
+                        class="btn btn-outline-danger"
+                    >
+                        Add to Favorites
+                    </a>
+
+                {% endif %}
+
+            {% endif %}
+
 
         </div>
 
