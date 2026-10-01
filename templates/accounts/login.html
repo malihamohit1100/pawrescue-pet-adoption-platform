@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Login | PawRescue{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="auth-card">
+
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4 p-md-5">
+
+                <div class="text-center mb-4">
+                    <h1 class="h3 fw-bold">
+                        Welcome Back
+                    </h1>
+
+                    <p class="text-muted">
+                        Login to manage your adoption journey.
+                    </p>
+                </div>
+
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        Your username or password was incorrect.
+                        Please try again.
+                    </div>
+                {% endif %}
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label
+                            for="id_username"
+                            class="form-label fw-semibold"
+                        >
+                            Username
+                        </label>
+
+                        <input
+                            type="text"
+                            name="username"
+                            id="id_username"
+                            class="form-control"
+                            required
+                            autofocus
+                        >
+                    </div>
+
+                    <div class="mb-3">
+                        <label
+                            for="id_password"
+                            class="form-label fw-semibold"
+                        >
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            id="id_password"
+                            class="form-control"
+                            required
+                        >
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary w-100"
+                    >
+                        Login
+                    </button>
+                </form>
+
+                <p class="text-center text-muted mt-4 mb-0">
+                    Don't have an account?
+                    <a href="{% url 'accounts:register' %}">
+                        Create one
+                    </a>
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

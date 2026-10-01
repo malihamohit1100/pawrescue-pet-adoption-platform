@@ -1,0 +1,349 @@
+{% extends "base.html" %}
+
+{% block title %}Find Pets | PawRescue{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="mb-4">
+        <h1 class="fw-bold">
+            Find Your New Companion
+        </h1>
+
+        <p class="text-muted">
+            Search and filter pets based on your preferences.
+        </p>
+    </div>
+
+
+    <div class="row g-4">
+
+        <!-- Filters -->
+
+        <div class="col-lg-3">
+
+            <div class="card shadow-sm border-0 filter-card">
+
+                <div class="card-body">
+
+                    <h2 class="h5 fw-bold mb-4">
+                        Search & Filter
+                    </h2>
+
+                    <form method="get">
+
+                        <div class="mb-3">
+                            <label
+                                for="search"
+                                class="form-label"
+                            >
+                                Search
+                            </label>
+
+                            <input
+                                type="text"
+                                name="search"
+                                id="search"
+                                class="form-control"
+                                value="{{ search }}"
+                                placeholder="Name, breed, location..."
+                            >
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label
+                                for="animal_type"
+                                class="form-label"
+                            >
+                                Animal Type
+                            </label>
+
+                            <select
+                                name="animal_type"
+                                id="animal_type"
+                                class="form-select"
+                            >
+                                <option value="">
+                                    All Types
+                                </option>
+
+                                {% for value, label in animal_types %}
+
+                                    <option
+                                        value="{{ value }}"
+                                        {% if animal_type == value %}
+                                            selected
+                                        {% endif %}
+                                    >
+                                        {{ label }}
+                                    </option>
+
+                                {% endfor %}
+
+                            </select>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label
+                                for="breed"
+                                class="form-label"
+                            >
+                                Breed
+                            </label>
+
+                            <input
+                                type="text"
+                                name="breed"
+                                id="breed"
+                                class="form-control"
+                                value="{{ breed }}"
+                                placeholder="e.g. Golden Retriever"
+                            >
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label
+                                for="gender"
+                                class="form-label"
+                            >
+                                Gender
+                            </label>
+
+                            <select
+                                name="gender"
+                                id="gender"
+                                class="form-select"
+                            >
+                                <option value="">
+                                    Any Gender
+                                </option>
+
+                                {% for value, label in genders %}
+
+                                    <option
+                                        value="{{ value }}"
+                                        {% if gender == value %}
+                                            selected
+                                        {% endif %}
+                                    >
+                                        {{ label }}
+                                    </option>
+
+                                {% endfor %}
+
+                            </select>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label
+                                for="location"
+                                class="form-label"
+                            >
+                                Location
+                            </label>
+
+                            <input
+                                type="text"
+                                name="location"
+                                id="location"
+                                class="form-control"
+                                value="{{ location }}"
+                                placeholder="e.g. Dhaka"
+                            >
+                        </div>
+
+
+                        <div class="mb-4">
+                            <label
+                                for="status"
+                                class="form-label"
+                            >
+                                Status
+                            </label>
+
+                            <select
+                                name="status"
+                                id="status"
+                                class="form-select"
+                            >
+                                <option value="">
+                                    Any Status
+                                </option>
+
+                                {% for value, label in statuses %}
+
+                                    <option
+                                        value="{{ value }}"
+                                        {% if status == value %}
+                                            selected
+                                        {% endif %}
+                                    >
+                                        {{ label }}
+                                    </option>
+
+                                {% endfor %}
+
+                            </select>
+                        </div>
+
+
+                        <div class="d-grid gap-2">
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                            >
+                                Apply Filters
+                            </button>
+
+                            <a
+                                href="{% url 'pets:list' %}"
+                                class="btn btn-outline-secondary"
+                            >
+                                Clear Filters
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Results -->
+
+        <div class="col-lg-9">
+
+            {% if page_obj.object_list %}
+
+                <div class="row g-4">
+
+                    {% for pet in page_obj %}
+
+                        <div class="col-md-6">
+
+                            {% include "pets/_pet_card.html" with pet=pet %}
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- Pagination -->
+
+                {% if page_obj.has_other_pages %}
+
+                    <nav
+                        class="mt-5"
+                        aria-label="Pet pagination"
+                    >
+
+                        <ul class="pagination justify-content-center">
+
+                            {% if page_obj.has_previous %}
+
+                                <li class="page-item">
+                                    <a
+                                        class="page-link"
+                                        href="?search={{ search }}&animal_type={{ animal_type }}&breed={{ breed }}&gender={{ gender }}&location={{ location }}&status={{ status }}&page={{ page_obj.previous_page_number }}"
+                                    >
+                                        Previous
+                                    </a>
+                                </li>
+
+                            {% endif %}
+
+
+                            {% for num in page_obj.paginator.page_range %}
+
+                                {% if page_obj.number == num %}
+
+                                    <li class="page-item active">
+                                        <span class="page-link">
+                                            {{ num }}
+                                        </span>
+                                    </li>
+
+                                {% else %}
+
+                                    <li class="page-item">
+                                        <a
+                                            class="page-link"
+                                            href="?search={{ search }}&animal_type={{ animal_type }}&breed={{ breed }}&gender={{ gender }}&location={{ location }}&status={{ status }}&page={{ num }}"
+                                        >
+                                            {{ num }}
+                                        </a>
+                                    </li>
+
+                                {% endif %}
+
+                            {% endfor %}
+
+
+                            {% if page_obj.has_next %}
+
+                                <li class="page-item">
+                                    <a
+                                        class="page-link"
+                                        href="?search={{ search }}&animal_type={{ animal_type }}&breed={{ breed }}&gender={{ gender }}&location={{ location }}&status={{ status }}&page={{ page_obj.next_page_number }}"
+                                    >
+                                        Next
+                                    </a>
+                                </li>
+
+                            {% endif %}
+
+                        </ul>
+
+                    </nav>
+
+                {% endif %}
+
+
+            {% else %}
+
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center py-5">
+
+                        <div class="display-4 mb-3">
+                            🐾
+                        </div>
+
+                        <h2 class="h4 fw-bold">
+                            No pets found
+                        </h2>
+
+                        <p class="text-muted">
+                            Try changing your search or filters.
+                        </p>
+
+                        <a
+                            href="{% url 'pets:list' %}"
+                            class="btn btn-primary"
+                        >
+                            View All Pets
+                        </a>
+
+                    </div>
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

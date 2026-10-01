@@ -1,0 +1,80 @@
+body {
+    min-height: 100vh;
+}
+
+.hero-section {
+    background: linear-gradient(
+        135deg,
+        #212529,
+        #343a40
+    );
+    color: white;
+    padding: 90px 0;
+}
+
+.hero-section h1 {
+    font-weight: 700;
+}
+
+.pet-card {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    height: 100%;
+}
+
+.pet-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.12);
+}
+
+.pet-card-image {
+    height: 230px;
+    object-fit: cover;
+}
+
+.pet-placeholder {
+    height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e9ecef;
+    color: #6c757d;
+    font-size: 3rem;
+}
+
+.pet-detail-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.pet-detail-placeholder {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e9ecef;
+    border-radius: 12px;
+    font-size: 5rem;
+}
+
+.filter-card {
+    position: sticky;
+    top: 85px;
+}
+
+.stat-card {
+    border: 0;
+    border-radius: 12px;
+}
+
+.auth-card {
+    max-width: 500px;
+    margin: 60px auto;
+}
+
+footer {
+    margin-top: auto;
+}
