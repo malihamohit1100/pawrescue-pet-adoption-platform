@@ -21,61 +21,46 @@
 
         <!-- Filters -->
 
-        <div class="col-lg-3">
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
 
-            <div class="card shadow-sm border-0 filter-card">
+                <form method="get">
 
-                <div class="card-body">
+                    <div class="row g-3">
 
-                    <h2 class="h5 fw-bold mb-4">
-                        Search & Filter
-                    </h2>
-
-                    <form method="get">
-
-                        <div class="mb-3">
-                            <label
-                                for="search"
-                                class="form-label"
-                            >
+                        <div class="col-md-6 col-lg-4">
+                            <label for="search" class="form-label">
                                 Search
                             </label>
 
                             <input
                                 type="text"
-                                name="search"
                                 id="search"
+                                name="search"
                                 class="form-control"
                                 value="{{ search }}"
-                                placeholder="Name, breed, location..."
+                                placeholder="Search by name, breed, type..."
                             >
                         </div>
 
 
-                        <div class="mb-3">
-                            <label
-                                for="animal_type"
-                                class="form-label"
-                            >
+                        <div class="col-md-6 col-lg-2">
+                            <label for="animal_type" class="form-label">
                                 Animal Type
                             </label>
 
                             <select
-                                name="animal_type"
                                 id="animal_type"
+                                name="animal_type"
                                 class="form-select"
                             >
-                                <option value="">
-                                    All Types
-                                </option>
+                                <option value="">All</option>
 
                                 {% for value, label in animal_types %}
 
                                     <option
                                         value="{{ value }}"
-                                        {% if animal_type == value %}
-                                            selected
-                                        {% endif %}
+                                        {% if animal_type == value %}selected{% endif %}
                                     >
                                         {{ label }}
                                     </option>
@@ -86,49 +71,23 @@
                         </div>
 
 
-                        <div class="mb-3">
-                            <label
-                                for="breed"
-                                class="form-label"
-                            >
-                                Breed
-                            </label>
-
-                            <input
-                                type="text"
-                                name="breed"
-                                id="breed"
-                                class="form-control"
-                                value="{{ breed }}"
-                                placeholder="e.g. Golden Retriever"
-                            >
-                        </div>
-
-
-                        <div class="mb-3">
-                            <label
-                                for="gender"
-                                class="form-label"
-                            >
+                        <div class="col-md-6 col-lg-2">
+                            <label for="gender" class="form-label">
                                 Gender
                             </label>
 
                             <select
-                                name="gender"
                                 id="gender"
+                                name="gender"
                                 class="form-select"
                             >
-                                <option value="">
-                                    Any Gender
-                                </option>
+                                <option value="">All</option>
 
                                 {% for value, label in genders %}
 
                                     <option
                                         value="{{ value }}"
-                                        {% if gender == value %}
-                                            selected
-                                        {% endif %}
+                                        {% if gender == value %}selected{% endif %}
                                     >
                                         {{ label }}
                                     </option>
@@ -139,49 +98,23 @@
                         </div>
 
 
-                        <div class="mb-3">
-                            <label
-                                for="location"
-                                class="form-label"
-                            >
-                                Location
-                            </label>
-
-                            <input
-                                type="text"
-                                name="location"
-                                id="location"
-                                class="form-control"
-                                value="{{ location }}"
-                                placeholder="e.g. Dhaka"
-                            >
-                        </div>
-
-
-                        <div class="mb-4">
-                            <label
-                                for="status"
-                                class="form-label"
-                            >
+                        <div class="col-md-6 col-lg-2">
+                            <label for="status" class="form-label">
                                 Status
                             </label>
 
                             <select
-                                name="status"
                                 id="status"
+                                name="status"
                                 class="form-select"
                             >
-                                <option value="">
-                                    Any Status
-                                </option>
+                                <option value="">All</option>
 
                                 {% for value, label in statuses %}
 
                                     <option
                                         value="{{ value }}"
-                                        {% if status == value %}
-                                            selected
-                                        {% endif %}
+                                        {% if status == value %}selected{% endif %}
                                     >
                                         {{ label }}
                                     </option>
@@ -192,7 +125,23 @@
                         </div>
 
 
-                        <div class="d-grid gap-2">
+                        <div class="col-md-6 col-lg-2">
+                            <label for="location" class="form-label">
+                                Location
+                            </label>
+
+                            <input
+                                type="text"
+                                id="location"
+                                name="location"
+                                class="form-control"
+                                value="{{ location }}"
+                                placeholder="Location"
+                            >
+                        </div>
+
+
+                        <div class="col-12 d-flex gap-2">
 
                             <button
                                 type="submit"
@@ -205,17 +154,16 @@
                                 href="{% url 'pets:list' %}"
                                 class="btn btn-outline-secondary"
                             >
-                                Clear Filters
+                                Clear
                             </a>
 
                         </div>
 
-                    </form>
+                    </div>
 
-                </div>
+                </form>
 
             </div>
-
         </div>
 
 
@@ -320,17 +268,17 @@
                             🐾
                         </div>
 
-                        <h2 class="h4 fw-bold">
+                        <h3 class="h4 fw-bold">
                             No pets found
-                        </h2>
+                        </h3>
 
-                        <p class="text-muted">
-                            Try changing your search or filters.
+                        <p class="text-muted mb-4">
+                            We couldn't find any pets matching your current filters.
                         </p>
 
                         <a
                             href="{% url 'pets:list' %}"
-                            class="btn btn-primary"
+                            class="btn btn-outline-primary"
                         >
                             View All Pets
                         </a>

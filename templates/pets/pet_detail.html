@@ -129,61 +129,68 @@
             </div>
 
 
-            {% if pet.status == "Available" %}
+            <div class="d-flex flex-wrap gap-2">
+
+                {% if pet.status == "Available" %}
+
+                    {% if user.is_authenticated %}
+
+                        <a
+                            href="{% url 'adoptions:create' pet.pk %}"
+                            class="btn btn-primary btn-lg"
+                        >
+                            Apply for Adoption
+                        </a>
+
+                    {% else %}
+
+                        <a
+                            href="{% url 'accounts:login' %}?next={% url 'adoptions:create' pet.pk %}"
+                            class="btn btn-primary btn-lg"
+                        >
+                            Login to Apply
+                        </a>
+
+                    {% endif %}
+
+                {% else %}
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary btn-lg"
+                        disabled
+                    >
+                        Already Adopted
+                    </button>
+
+                {% endif %}
+
 
                 {% if user.is_authenticated %}
 
-                    <a
-                        href="{% url 'adoptions:create' pet.pk %}"
-                        class="btn btn-primary btn-lg"
-                    >
-                        Apply for Adoption
-                    </a>
+                    {% if is_favorite %}
 
-                {% else %}
-
-                    <div class="alert alert-info">
-                        Please
-                        <a href="{% url 'accounts:login' %}">
-                            login
+                        <a
+                            href="{% url 'favorites:toggle' pet.pk %}"
+                            class="btn btn-outline-danger btn-lg"
+                        >
+                            Remove from Favorites
                         </a>
-                        to apply for adoption.
-                    </div>
+
+                    {% else %}
+
+                        <a
+                            href="{% url 'favorites:toggle' pet.pk %}"
+                            class="btn btn-outline-danger btn-lg"
+                        >
+                            Add to Favorites
+                        </a>
+
+                    {% endif %}
 
                 {% endif %}
 
-            {% else %}
-
-                <div class="alert alert-secondary">
-                    This pet has already been adopted.
-                </div>
-
-            {% endif %}
-
-
-            {% if user.is_authenticated %}
-
-                {% if is_favorite %}
-
-                    <a
-                        href="{% url 'favorites:toggle' pet.pk %}"
-                        class="btn btn-outline-danger"
-                    >
-                        Remove from Favorites
-                    </a>
-
-                {% else %}
-
-                    <a
-                        href="{% url 'favorites:toggle' pet.pk %}"
-                        class="btn btn-outline-danger"
-                    >
-                        Add to Favorites
-                    </a>
-
-                {% endif %}
-
-            {% endif %}
+            </div>
 
 
         </div>
