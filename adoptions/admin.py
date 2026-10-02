@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from django.db import transaction
 
 from .models import AdoptionRequest
+from .services import approve_adoption_request
 
 
 @admin.register(AdoptionRequest)
