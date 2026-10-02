@@ -19,4 +19,15 @@ class PetSerializer(serializers.ModelSerializer):
             "status",
             "created_at",
         ]
-        read_only_fields = ["id", "created_at"]
+        read_only_fields = [
+            "id",
+            "created_at",
+        ]
+
+    def validate_age(self, value):
+        if value < 0:
+            raise serializers.ValidationError(
+                "Age cannot be negative."
+            )
+
+        return value

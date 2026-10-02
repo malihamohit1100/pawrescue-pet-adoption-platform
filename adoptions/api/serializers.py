@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from adoptions.models import AdoptionRequest
+from pets.models import Pet
 
 
 class AdoptionRequestSerializer(serializers.ModelSerializer):
@@ -29,3 +30,11 @@ class AdoptionRequestSerializer(serializers.ModelSerializer):
             "status",
             "created_at",
         ]
+
+    def validate_pet(self, pet):
+        if pet.status != Pet.AdoptionStatus.AVAILABLE:
+            raise serializers.ValidationError(
+                "This pet is no longer available for adoption."
+            )
+
+        return pet

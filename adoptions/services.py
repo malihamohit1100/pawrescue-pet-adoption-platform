@@ -8,6 +8,11 @@ def approve_adoption_request(adoption_request):
     with transaction.atomic():
         pet = adoption_request.pet
 
+        if adoption_request.status != AdoptionRequest.Status.PENDING:
+            raise ValidationError(
+                "Only pending adoption requests can be approved."
+            )
+
         if pet.status != "Available":
             raise ValidationError(
                 "This pet is no longer available for adoption."
@@ -27,3 +32,13 @@ def approve_adoption_request(adoption_request):
         ).update(
             status=AdoptionRequest.Status.REJECTED
         )
+
+
+def reject_adoption_request(adoption_request):
+    if adoption_request.status != AdoptionRequest.Status.PENDING:
+        raise ValidationError(
+            "Only pending adoption requests can be rejected."
+        )
+
+    adoption_request.status = AdoptionRequest.Status.REJECTED
+    adoption_request.save(update_fields=["status"])
