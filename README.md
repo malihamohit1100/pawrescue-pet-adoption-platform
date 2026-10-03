@@ -4,6 +4,54 @@ PawRescue is a Django-based pet adoption and rescue platform that allows users t
 
 The project also provides a REST API built with Django REST Framework for pet and adoption request management.
 
+
+## Screenshots
+
+### Home Page
+
+![PawRescue Home Page](docs/screenshots/home.png)
+
+![PawRescue Home Page](docs/screenshots/home2.png)
+
+![PawRescue Home Page](docs/screenshots/home3.png)
+
+
+### Pet Listing
+
+![PawRescue Pet Listing](docs/screenshots/pet-list.png)
+
+### Search & Filters
+
+![PawRescue Pet Search and Filters](docs/screenshots/pet-filter.png)
+
+### Pet Details
+
+![PawRescue Pet Details](docs/screenshots/pet-detail.png)
+
+### User Dashboard
+
+![PawRescue User Dashboard](docs/screenshots/dashboard.png)
+
+![PawRescue User Dashboard](docs/screenshots/dashboard2.png)
+
+### Adoption Application
+
+![PawRescue Adoption Application](docs/screenshots/adoption-form.png)
+
+### Django Admin
+
+![PawRescue Django Admin](docs/screenshots/admin-adoption.png)
+
+### Login Page
+
+![PawRescue Login Page](docs/screenshots/login.png)
+
+### Registration Page
+
+![PawRescue Registration Page](docs/screenshots/register.png)
+
+
+
 ## Features
 
 ### User Authentication
@@ -64,6 +112,31 @@ The project also provides a REST API built with Django REST Framework for pet an
 - User-specific adoption request access
 - Staff-only pet management
 - API validation and permissions
+
+
+
+## REST API — Postman
+
+### API Authentication
+
+![PawRescue API Authentication](docs/screenshots/postman-token.png)
+
+### Pet API
+
+![PawRescue Pet API](docs/screenshots/postman-pets.png)
+
+
+### Adoption API
+
+![PawRescue Adoption API](docs/screenshots/postman-adoptions.png)
+
+
+## Demo Video
+
+A complete walkthrough of the PawRescue website, adoption workflow, Django Admin, and REST API is available below.
+
+[Watch the PawRescue Demo](docs/demo/pawrescue-demo.mp4)
+*Video Demostration will be added later*
 
 ## Technology Stack
 

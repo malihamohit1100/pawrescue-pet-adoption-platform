@@ -132,3 +132,449 @@ footer {
     }
 
 }
+
+/* =========================================
+   PawRescue Theme Overrides
+   ========================================= */
+
+:root {
+    --paw-primary: #916fc7;
+    --paw-primary-dark: #4917a5;
+    --paw-secondary: #e616db;
+    --paw-accent: #f88b0e;
+
+    --paw-bg: #ffd98e;
+    --paw-surface: #ffffff;
+    --paw-surface-soft: #eef5f3;
+
+    --paw-text: #243434;
+    --paw-text-muted: #687777;
+    --paw-border: #dce5e2;
+}
+
+
+/* ---------- Body ---------- */
+
+html,
+body {
+    background-color: var(--paw-bg) !important;
+    color: var(--paw-text) !important;
+}
+
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+    background-color: var(--paw-primary) !important;
+}
+
+.navbar .navbar-brand {
+    color: #ffffff !important;
+}
+
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar .nav-link:hover {
+    color: var(--paw-secondary) !important;
+}
+
+
+/* ---------- Hero Section ---------- */
+
+.hero-section {
+    background: linear-gradient(
+        135deg,
+        var(--paw-primary),
+        var(--paw-primary-dark)
+    ) !important;
+
+    color: #ffffff !important;
+}
+
+
+/* ---------- Buttons ---------- */
+
+.btn-primary {
+    background-color: var(--paw-primary) !important;
+    border-color: var(--paw-primary) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--paw-primary-dark) !important;
+    border-color: var(--paw-primary-dark) !important;
+}
+
+.btn-outline-primary {
+    color: var(--paw-primary) !important;
+    border-color: var(--paw-primary) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--paw-primary) !important;
+    border-color: var(--paw-primary) !important;
+    color: #ffffff !important;
+}
+
+
+/* ---------- Cards ---------- */
+
+.card {
+    background-color: var(--paw-surface) !important;
+    border-color: var(--paw-border) !important;
+}
+
+
+/* ---------- Forms ---------- */
+
+.form-control,
+.form-select {
+    background-color: #ffffff !important;
+    border-color: var(--paw-border) !important;
+    color: var(--paw-text) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--paw-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(23, 107, 103, 0.15) !important;
+}
+
+
+/* ---------- Pet Cards ---------- */
+
+.pet-card {
+    background-color: var(--paw-surface) !important;
+    border-color: var(--paw-border) !important;
+}
+
+.pet-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.8rem 1.8rem rgba(23, 107, 103, 0.14) !important;
+}
+
+.pet-card-placeholder,
+.pet-detail-placeholder {
+    background-color: var(--paw-surface-soft) !important;
+}
+
+
+/* ---------- Footer ---------- */
+
+footer {
+    background-color: var(--paw-primary-dark) !important;
+    color: #ffffff !important;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+footer a:hover {
+    color: var(--paw-secondary) !important;
+}
+
+
+/* ---------- Text ---------- */
+
+.text-muted {
+    color: var(--paw-text-muted) !important;
+}
+
+
+/* ---------- Pagination ---------- */
+
+.pagination .page-link {
+    color: var(--paw-primary) !important;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--paw-primary) !important;
+    border-color: var(--paw-primary) !important;
+    color: #ffffff !important;
+}
+
+
+/* ---------- Success Badge ---------- */
+
+.badge.text-bg-success {
+    background-color: #4f8a63 !important;
+}
+
+
+
+/* =========================================
+   PAWRESCUE - FINAL THEME OVERRIDES
+   ========================================= */
+
+/* ---------- Global ---------- */
+
+html,
+body {
+    background: #f8f5ef !important;
+    background-color: #f8f5ef !important;
+    color: #243434 !important;
+}
+
+
+/* ---------- Bootstrap Primary Color ---------- */
+/* This changes Bootstrap's default blue used by
+   text-primary, borders, links, etc. */
+
+.text-primary {
+    color: #f8fafa !important;
+}
+
+.bg-primary {
+    color: #280d5a !important;
+     background-color: #f8f5ef !important;
+}
+
+
+.border-primary {
+    border-color: #176b67 !important;
+}
+
+
+/* ---------- Navbar ---------- */
+
+.navbar,
+.navbar-dark,
+.navbar[data-bs-theme="dark"] {
+    background-color: #ae73e6 !important;
+}
+
+.navbar .navbar-brand {
+    color: #ffffff !important;
+}
+
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #eb924a !important;
+}
+
+
+/* ---------- Hero ---------- */
+
+.hero-section,
+section.hero-section {
+    background: linear-gradient(
+        135deg,
+        #7443fa 0%,
+        #4c2d80 100%
+    ) !important;
+
+    background-color: #3d2596 !important;
+    color: #ffffff !important;
+}
+
+.hero-section h1,
+.hero-section h2,
+.hero-section h3,
+.hero-section p {
+    color: #ffffff !important;
+}
+
+
+/* ---------- Hero Primary Text ---------- */
+
+.hero-section .text-primary {
+    color: #f4b860 !important;
+}
+
+
+/* ---------- Buttons ---------- */
+
+.btn-primary {
+    background-color: #e9f0ef !important;
+    border-color: #26176b !important;
+    color: #380469 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #221151 !important;
+    border-color: #441151 !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-primary {
+    color: #30176b !important;
+    border-color: #29176b !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    background-color: #30176b !important;
+    border-color: #37176b !important;
+    color: #ffffff !important;
+}
+
+
+/* ---------- Dropdown Menus ---------- */
+
+.dropdown-menu {
+    background-color: #ffffff !important;
+    border: 1px solid #dce5e2 !important;
+    box-shadow: 0 0.5rem 1rem rgba(36, 52, 52, 0.12) !important;
+}
+
+.dropdown-item {
+    color: #292434 !important;
+    background-color: transparent !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    color: #ffffff !important;
+    background-color: #2d176b !important;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    color: #ffffff !important;
+    background-color: #29176b !important;
+}
+
+
+.form-label {
+    background-color: #fdfafa !important;
+    color: #0a0420 !important;
+    border-color: #16064e !important;
+}
+
+/* ---------- Select Dropdowns ---------- */
+
+.form-select {
+    background-color: #fdfafa !important;
+    color: #070420 !important;
+    border-color: #271175 !important;
+}
+
+.form-select:focus {
+    border-color: #29176b !important;
+    box-shadow: 0 0 0 0.2rem rgba(41, 23, 107, 0.15) !important;
+}
+
+.form-label:hover {
+    box-shadow: 0 0.8rem 1.8rem rgba(52, 23, 107, 0.14) !important;
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+    background-color: #ffffff !important;
+    border-color: #dce5e2 !important;
+}
+
+
+/* ---------- Filter Card ---------- */
+
+.filter-card {
+    background-color: #ffffff !important;
+    border-color: #dce5e2 !important;
+}
+
+
+/* ---------- Pet Cards ---------- */
+
+.pet-card {
+    background-color: #ffffff !important;
+    border-color: #dce5e2 !important;
+}
+
+.pet-card:hover {
+    box-shadow: 0 0.8rem 1.8rem rgba(45, 23, 107, 0.14) !important;
+}
+
+
+/* ---------- Form Controls ---------- */
+
+.form-control {
+    background-color: #ffffff !important;
+    color: #243434 !important;
+    border-color: #dce5e2 !important;
+}
+
+.form-control:focus {
+    background-color: #ffffff !important;
+    color: #282434 !important;
+    border-color: #3e176b !important;
+    box-shadow: 0 0 0 0.2rem rgba(23, 107, 103, 0.15) !important;
+}
+
+
+/* ---------- Footer ---------- */
+
+footer,
+footer.bg-dark,
+.bg-dark {
+    background-color: #271151 !important;
+    color: #ffffff !important;
+}
+
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6,
+footer p,
+footer span,
+footer div {
+    color: #ffffff !important;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+footer a:hover {
+    color: #f4b860 !important;
+}
+
+
+/* ---------- Muted Text ---------- */
+
+.text-muted {
+    color: #687777 !important;
+}
+
+
+/* ---------- Success ---------- */
+
+.badge.text-bg-success,
+.bg-success {
+    background-color: #4f8a63 !important;
+}
+
+
+/* ---------- Pagination ---------- */
+
+.pagination .page-link {
+    color: #3b176b !important;
+    border-color: #dce5e2 !important;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #26176b !important;
+    border-color: #5d176b !important;
+    color: #ffffff !important;
+}
+
+
+/* ---------- Pet Placeholders ---------- */
+
+.pet-card-placeholder,
+.pet-detail-placeholder {
+    background-color: #eef5f3 !important;
+}
