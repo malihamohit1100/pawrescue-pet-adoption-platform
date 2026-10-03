@@ -54,7 +54,7 @@ def pet_list_view(request):
     if status:
         pets = pets.filter(status=status)
 
-    paginator = Paginator(pets, 4)
+    paginator = Paginator(pets, 6)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 

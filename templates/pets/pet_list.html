@@ -169,7 +169,7 @@
 
         <!-- Results -->
 
-        <div class="col-lg-9">
+        <div class="row">
 
             {% if page_obj.object_list %}
 
@@ -177,7 +177,7 @@
 
                     {% for pet in page_obj %}
 
-                        <div class="col-md-6">
+                        <div class="col-12 col-sm-6 col-lg-4 mb-4">
 
                             {% include "pets/_pet_card.html" with pet=pet %}
 
