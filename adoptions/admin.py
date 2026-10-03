@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.core.exceptions import ValidationError
 
 from .models import AdoptionRequest
 from .services import (
@@ -27,21 +26,21 @@ class AdoptionRequestAdmin(admin.ModelAdmin):
     )
     readonly_fields = ("created_at",)
 
+
     def save_model(self, request, obj, form, change):
-        if obj.status == AdoptionRequest.Status.APPROVED:
-            approve_adoption_request(obj)
-            return
+        previous = None
+
+        if change:
+            previous = AdoptionRequest.objects.get(pk=obj.pk)
 
         if (
             change
-            and obj.status == AdoptionRequest.Status.REJECTED
+            and previous.status != obj.status
         ):
-            previous = AdoptionRequest.objects.get(pk=obj.pk)
+            if obj.status == AdoptionRequest.Status.APPROVED:
+                approve_adoption_request(previous)
 
-            if previous.status != AdoptionRequest.Status.REJECTED:
-                reject_adoption_request(obj)
-
-                if previous.status == AdoptionRequest.Status.PENDING:
-                    return
+            elif obj.status == AdoptionRequest.Status.REJECTED:
+                reject_adoption_request(previous)
 
         super().save_model(request, obj, form, change)
