@@ -135,8 +135,8 @@ The project also provides a REST API built with Django REST Framework for pet an
 
 A complete walkthrough of the PawRescue website, adoption workflow, Django Admin, and REST API is available below.
 
-[Watch the PawRescue Demo](docs/demo/pawrescue-demo.mp4)
-*Video Demostration will be added later*
+[Watch the PawRescue Demo](https://drive.google.com/file/d/1QbIJK4pM609N2UqUJAjI1-_m_7Rv4bZr/view?usp=sharing)
+
 
 ## Technology Stack
 
